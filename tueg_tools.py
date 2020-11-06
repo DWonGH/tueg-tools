@@ -80,7 +80,7 @@ class Dataset:
         """Generator to iterate over eeg reports (text) in the dataset."""
         raise NotImplementedError
 
-    def download(self, url, username='nedc_tuh_eeg', password=None, maxSize=float('Inf'),
+    def download(self, url, username=None, password=None, maxSize=float('Inf'),
                  currPath=None):
         """Download all data from the specified URL. The function will walk recursively through the
         directory, downloading all children. The resulting folder structure will mimic the directory
@@ -101,7 +101,7 @@ class Dataset:
         ds = tueg_tools.Dataset('C:/YourPath')
         # N.B. Below, maxSize=10*11 limits the download to the first 100 GB.
         ds.download('https://www.isip.piconepress.com/projects/tuh_eeg/downloads/tuh_eeg_abnormal/',
-            password='Your Password', maxSize=10**11)
+            username='Your Username', password='Your Password', maxSize=10**11)
         """
 
         from bs4 import BeautifulSoup
